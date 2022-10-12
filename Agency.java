@@ -88,10 +88,10 @@ public class Agency {
 
     @Override
     public String toString() {
-        return "Il guadagno totale dell'agenzia è pari a " + getIncome() + "€. Le proprietà disponibili sono "
-                + getAvailableEstates() + ", di cui " + getToRent() + " disponibili in contratto di affitto e "
+        return "The agency earned " + getIncome() + "$ in total. There are "
+                + getAvailableEstates() + " estates available, " + getToRent() + " estates are available with a rent contract and the other "
                 + getToSell()
-                + " disponibili in contratto di vendita.";
+                + " estates are available with a sale contract.";
     }
 
     public void readFile() {
