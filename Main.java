@@ -1,49 +1,42 @@
-
-// Metodo toString() per tenere traccia del profitto dell'azienda e delle case a disposizione, distinguendo affitto e vendita X
-// Gestire profitto dell'azienda in base a una percentuale a seguito di una vendita o un affitto X
-// Funzioni inserimento proprietà e vendita proprietà X
-// Funzione ricerca per tipologia e prezzo massimo desiderato X
-// Lettura/scrittura su .csv X
-
 public class Main {
     public static void main(String[] args) {
         String[] paths = { "estates.csv", "estates2.csv", "estates3.csv" };
         try {
-            // Lettura file .csv
+            // Reading from .csv
             Agency a = new Agency(paths);
             a.readFile();
-            // Case a disposizione dell'agenzia
+            // Calling toString() method to display all properties owned by the agency
             System.out.println(a.toString());
             System.out.println(a.getEstates());
-            // Ricerca per tipo "house"
-            System.out.println("\nElenco case:\n");
+            // Searching by type "house"
+            System.out.println("\nHouses:\n");
             a.searchByType("House");
-            // Ricerca per tipo "flat"
-            System.out.println("Elenco appartamenti:\n");
+            // Searching by type "flat"
+            System.out.println("Flats:\n");
             a.searchByType("Flat");
-            // Ricerca per prezzo (Massimo 600 euro)
-            System.out.println("Ricerca per prezzo (Massimo 600):\n");
+            // Searching by price
+            System.out.println("Search by price (600 max):\n");
             a.searchByPrice(600);
-            // Creazione nuova agenzia e aggiunta nuove proprietà
+            // Creating a new agency and adding some properties to it 
             Agency b = new Agency(0, 0, 0, 0);
             Estate e = new Estate(123456, "House", 250000, true);
             Estate f = new Estate(654321, "Flat", 400, false);
             b.addEstates(e);
             b.addEstates(f);
-            System.out.println("Azienda con due proprietà disponibili:\n");
+            System.out.println("This agency owns two properties:\n");
             System.out.println(b.toString());
-            // Vendità con un profitto del 10% sul prezzo totale;
+            // Selling property with a 10% profit;
             b.sellEstate(e);
-            System.out.println("\nVendita proprietà 1:\n");
+            System.out.println("\nSelling property 1:\n");
             System.out.println(b.toString());
-            // Affitto con un profitto del 5% sul prezzo totale;
+            // Renting property with a 5% profit;
             b.sellEstate(f);
-            System.out.println("\nVendita proprietà 2:\n");
+            System.out.println("\nRenting property 2:\n");
             System.out.println(b.toString());
-            // Scrittura file .csv
+            // Writing everything on a new .csv file
             b.addEstates(e);
             b.addEstates(f);
-            b.saveEstates("sample.csv");
+            b.saveEstates("sample.csv"); // Your new file name here 
         } catch (Exception e) {
             System.out.println(e);
         }
