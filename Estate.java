@@ -26,15 +26,15 @@ public class Estate {
 
     public String isForSale() {
         if (toSell == true) {
-            return "In vendita.";
+            return "For sale.";
         } else {
-            return "In affitto.";
+            return "For rent.";
         }
     }
 
     @Override
     public String toString() {
-        return "ID: " + getId() + "; Tipo: " + getType() + "; Prezzo: " + getPrice() + "€; Contratto: "
+        return "ID: " + getId() + "; Type: " + getType() + "; Price: " + getPrice() + "$; Contract: "
                 + isForSale()
                 + "\n";
     }
